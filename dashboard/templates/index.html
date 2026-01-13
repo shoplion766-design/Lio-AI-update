@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Lio-AI Dashboard</title>
+</head>
+<body>
+<h1>Dashboard Lio-AI Copilot Pro</h1>
+<h2>Derniers contextes mémorisés</h2>
+<ul>
+{% for score, user_text, response_text in memory %}
+<li><b>Question:</b> {{user_text}} <br> <b>Réponse:</b> {{response_text}}</li>
+{% endfor %}
+</ul>
+</body>
+</html>

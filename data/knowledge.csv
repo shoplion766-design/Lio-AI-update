@@ -1,0 +1,8 @@
+id,text
+1,Flask est un framework web Python léger.
+2,Lio-AI est un agent intelligent modulaire basé sur Flask.
+3,RAG signifie Retrieval Augmented Generation.
+4,GPT-3.5 peut être utilisé pour générer ou compléter du code Python.
+5,Auto-refactor permet de proposer des améliorations de code automatiquement.
+6,Plugins dynamiques permettent d'étendre les fonctionnalités à la volée.
+7,Dashboard Flask permet de visualiser l'historique et la mémoire.
