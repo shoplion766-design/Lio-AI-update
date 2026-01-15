@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  lio-ai:
+    build: .
+    container_name: lio-ai
+    env_file:
+      - .env
+    ports:
+      - "5000:5000"
+    restart: unless-stopped

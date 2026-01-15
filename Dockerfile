@@ -1,11 +1,29 @@
+# --- Base image avec Python 3.11 ---
 FROM python:3.11-slim
 
+# --- Installer dépendances système utiles ---
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    curl \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+# --- Créer le répertoire de l'application ---
 WORKDIR /app
-COPY requirements.txt . 
+
+# --- Copier les fichiers requirements ---
+COPY requirements.txt .
+
+# --- Installer pip et les dépendances Python ---
+RUN pip install --upgrade pip setuptools wheel \
+    && pip install --no-cache-dir -r requirements.txt
+
+# --- Copier le reste du projet ---
 COPY . .
 
-RUN pip install --upgrade pip
-RUN pip install --no-cache-dir -r requirements.txt
-
+# --- Exposer le port de l'application ---
 EXPOSE 5000
-CMD ["gunicorn", "app:app", "--bind", "0.0.0.0:5000", "--workers", "4"]
+
+# --- Commande par défaut pour lancer l'application ---
+CMD ["python", "main.py"]
+
